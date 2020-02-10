@@ -47,7 +47,7 @@ export interface ClassSelector {
   readonly value: string;
 }
 
-export type AttributeMatcher = '~=' | '|=' | '^=' | '$=' | '*=';
+export type AttributeMatcher = '~=' | '|=' | '^=' | '$=' | '*=' | '=';
 
 export type AttributeValue = { string: boolean; value: string };
 
