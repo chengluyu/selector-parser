@@ -1,4 +1,19 @@
 {
+  "name": "selector-parser",
+  "version": "0.0.1",
+  "description": "Yet another CSS selector parser",
+  "files": [
+    "lib/*.js",
+    "lib/*.d.ts"
+  ],
+  "author": {
+    "name": "Luyu Cheng",
+    "url": "https://github.com/chengluyu"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chengluyu/selector-parser/issues"
+  },
   "scripts": {
     "build": "pegjs-make src/parser.pegjs && tsc && cp src/parser.d.ts lib/parser.d.ts",
     "watch": "tsc --watch"
