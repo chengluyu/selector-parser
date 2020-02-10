@@ -72,7 +72,7 @@ export interface PseudoClassSelector {
 }
 
 export interface PseudoElementSelector {
-  readonly kind: SelectorKind.PseudoClass;
+  readonly kind: SelectorKind.PseudoElement;
   readonly name: string;
   readonly parameter?: AnyValue;
 }
