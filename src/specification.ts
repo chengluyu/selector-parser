@@ -21,14 +21,14 @@ export enum CombinatorKind {
 export interface ComplexSelector {
   readonly kind: SelectorKind.Complex;
   readonly head: CompoundSelector;
-  readonly tail: [CombinatorKind, CompoundSelector];
+  readonly tail: [CombinatorKind, CompoundSelector][];
 }
 
 export interface CompoundSelector {
   readonly kind: SelectorKind.Compound;
   readonly type: TypeSelector;
-  readonly subClasses: IDSelector | ClassSelector | AttributeSelector | PseudoClassSelector;
-  readonly pseudoes: PseudoClassSelector | PseudoElementSelector;
+  readonly subClasses: (IDSelector | ClassSelector | AttributeSelector | PseudoClassSelector)[];
+  readonly pseudoes: (PseudoClassSelector | PseudoElementSelector)[];
 }
 
 export interface TypeSelector {
