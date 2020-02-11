@@ -27,13 +27,14 @@ export interface ComplexSelector {
 export interface CompoundSelector {
   readonly kind: SelectorKind.Compound;
   readonly type: TypeSelector;
-  readonly subClasses: (IDSelector | ClassSelector | AttributeSelector | PseudoClassSelector)[];
+  readonly subclasses: (IDSelector | ClassSelector | AttributeSelector | PseudoClassSelector)[];
   readonly pseudoes: (PseudoClassSelector | PseudoElementSelector)[];
 }
 
 export interface TypeSelector {
   readonly kind: SelectorKind.Type;
-  readonly value: string;
+  readonly namespace: string | null;
+  readonly name: string;
 }
 
 // eslint-disable-next-line @typescript-eslint/interface-name-prefix

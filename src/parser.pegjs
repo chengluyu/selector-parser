@@ -65,8 +65,8 @@ combinator
   / ' ' { return CombinatorKind.Descendant; }
 
 type_selector
-  = name:wq_name
-    { return { kind: SelectorKind.Type, name }; }
+  = value:wq_name
+    { return { kind: SelectorKind.Type, ...value }; }
   / ns_prefix? '*'
 
 ns_prefix
