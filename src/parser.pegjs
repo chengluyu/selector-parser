@@ -12,10 +12,28 @@
 
 // Adapted from https://drafts.csswg.org/selectors/#grammar
 
+// In interpreting the above grammar, the following rules apply:
+// * White space is forbidden:
+//   * Between any of the top-level components of a <compound-selector>
+//     (that is, forbidden between the <type-selector> and <subclass-selector>,
+//     or between the <subclass-selector> and <pseudo-element-selector>, etc).
+//   * Between any of the components of a <type-selector> or a <class-selector>.
+//   * Between the ':'s, or between the ':' and <ident-token> or
+//     <function-token>, of a <pseudo-element-selector> or a
+//     <pseudo-class-selector>.
+//   * Between any of the components of a <wq-name>.
+//   * Between the components of an <attr-matcher>.
+//   * Between the components of a <combinator>.
+// * The four Level 2 pseudo-elements (::before, ::after, ::first-line, and
+//   ::first-letter) may, for legacy reasons, be represented using the
+//   <pseudo-class-selector> grammar, with only a single ":" character at their
+//   start.
+// * In <id-selector>, the <hash-token>’s value must be an identifier.
+
 selector_list = complex_selector_list
 
 complex_selector_list
-  = head:complex_selector tail:("," item:complex_selector)*
+  = head:complex_selector tail:(ws_star "," ws_star item:complex_selector { return item; })*
     { return [head].concat(tail); }
 
 compound_selector_list
