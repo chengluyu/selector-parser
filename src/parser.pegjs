@@ -85,10 +85,12 @@ combinator
 type_selector
   = value:wq_name
     { return { kind: SelectorKind.Type, ...value }; }
-  / ns_prefix? '*'
+  / namespace:ns_prefix? '*'
+    { return { kind: SelectorKind.Type, namespace, name: '*' }; }
 
 ns_prefix
-  = (ident_token / '*' )? '|'
+  = namespace:(ident_token / '*')? '|'
+    { return namespace; }
 
 wq_name
   = namespace:ns_prefix? name:ident_token
